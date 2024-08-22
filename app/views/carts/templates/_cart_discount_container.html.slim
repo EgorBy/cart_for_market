@@ -15,7 +15,8 @@
                                              delimiter: ' ',
                                              precision: 0)
   .discount-slider.pb-12.mb-12
-    input#discount_range(type="range" min="0" max="1000" value= cart.discount)
+    input#discount_range(type="range" min="0" max="1000" value= cart.discount data-action="input->carts#inputChange"
+    data-carts-target="discountSlider" data-controller="carts" data-carts-update-url="/carts/#{cart.id}/update_discount")
   .amount-container.flex-box.flex-box--sb
     .amount-container--left
       h4 Сумма заказа

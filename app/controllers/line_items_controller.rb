@@ -24,6 +24,7 @@ class LineItemsController < ApplicationController
 
     if @current_cart.line_items.count != 0
       respond_to do |format|
+        @cart_counter = @current_cart.line_items.sum(&:quantity)
         format.turbo_stream
       end
     else

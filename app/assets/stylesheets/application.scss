@@ -214,6 +214,7 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border-bottom: 1px solid $border-color;
 }
 
 .field {
@@ -240,7 +241,8 @@ h2 {
   }
 }
 
-.discount-container {
+.discount-container,
+.order-container {
   padding: 16px;
   border-radius: 8px;
   border: 1px solid $border-color;

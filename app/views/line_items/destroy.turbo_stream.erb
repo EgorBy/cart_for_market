@@ -7,3 +7,7 @@
     <span><%= @cart_counter %></span>
   </div>
 <% end %>
+
+<%= turbo_stream.replace "discount-wrapper" do %>
+  <%= render partial: "carts/templates/cart_discount_container", locals: { cart: @current_cart } %>
+<% end %>

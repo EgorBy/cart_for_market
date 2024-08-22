@@ -1,0 +1,24 @@
+.container
+  .order-container
+    .form-order.flex-box.mb-12.pb-12 = form_for @order do |f|
+      p.mb-4
+        = f.label "Имя"
+        .field = f.text_field :name
+      p.mb-4
+        = f.label "Email"
+        .field = f.email_field :email
+      p.mb-4
+        = f.label "Адрес"
+        .field.mb-4 = f.text_area :address
+      p.mb-4
+        = f.submit "Заказать", class: "main-btn"
+
+    .amount-container.flex-box.flex-box--sb
+      .amount-container--left
+        h4 Сумма заказа
+      .amount-container--right
+        #cart_amount_with_discount = number_to_currency(@current_cart.sub_total - @current_cart.discount,
+         unit: '₽',
+         format: '%n %u',
+         delimiter: ' ',
+         precision: 0)

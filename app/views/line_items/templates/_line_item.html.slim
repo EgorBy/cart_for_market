@@ -1,13 +1,21 @@
-.line-item.row.flex-box.flex-box--sb id="line-item-#{line_item.id}" data-controller="line-items" data-id="#{line_item.id}" data-line-items-update-url="/line_items/#{line_item.id}"
+.line-item.row.flex-box.flex-box--sb id="line-item-#{line_item.id}" data-controller="line-items"  data-line-items-update-url="/line_items/#{line_item.id}"
   .line-item--left.flex-box.flex-box--ac.flex-basis-50
     .line-item__img.mr-12
       img src="#{line_item.product.image_url}" alt="#{line_item.product.name}"
     .line-item__title = "#{line_item.product.name}"
   .number-input-container
     button data-action="line-items#decrease" data-line-items-target="decreaseButton" class="button down"
-    = number_field_tag "quantity", line_item.quantity, id: "line-items-quantity-#{line_item.id}", readonly: true, min: 1, max: 99, class: 'quantity-input', data: { line_items_target: 'quantityInput' }
+    = number_field_tag "quantity", line_item.quantity, id: "line-items-quantity-#{line_item.id}",
+                                                       readonly: true,
+                                                       min: 1,
+                                                       max: 99,
+                                                       class: 'quantity-input',
+                                                       data: { line_items_target: 'quantityInput' }
     button data-action="line-items#increase" data-line-items-target="increaseButton" class="button up"
   .line-item--right.flex-box.flex-box--cl--se
     = button_to line_item_path(line_item.id), remote: true, method: :delete
       = inline_svg 'delete.svg'
-    div id="line-item-price-#{line_item.id}" = "#{number_to_currency(line_item.product.price * line_item.quantity, unit: '₽', format: '%n %u', delimiter: ' ', precision: 0)}"
+    div id="line-item-price-#{line_item.id}" = "#{number_to_currency(line_item.product.price * line_item.quantity, unit: '₽',
+                                                                                                                   format: '%n %u',
+                                                                                                                   delimiter: ' ',
+                                                                                                                   precision: 0)}"
