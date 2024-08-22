@@ -3,7 +3,8 @@
     .block__header--left
       h2 Корзина
     .block__header--right
-      = button_to "Очистить корзину", cart_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'secondary_text', remote: true
+      = button_to "Очистить корзину", cart_path, method: :delete, data: { confirm: 'Вы уверены?' },
+                                                  class: 'secondary_text', remote: true
   .line-item-container
     -if @cart.line_items.present?
       .line-item-content.mb-32

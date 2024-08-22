@@ -4,12 +4,24 @@
       p.mb-4= "#{cart.line_items.sum(&:quantity)} #{word_form(cart.line_items.sum(&:quantity))} на сумму"
       p Передвигая слайдер, укажите сумму скидки
     .discount-container__header--right
-      p#cart_amount.mb-4 data-summ="#{cart.sub_total}" = number_to_currency(cart.sub_total, unit: '₽', format: '%n %u', delimiter: ' ', precision: 0)
-      p#discount_amount 100 ₽
+      p#cart_amount.mb-4 data-summ="#{cart.sub_total}" = number_to_currency(cart.sub_total,
+                                                                            unit: '₽',
+                                                                            format: '%n %u',
+                                                                            delimiter: ' ',
+                                                                            precision: 0)
+      p#discount_amount = number_to_currency(cart.discount,
+                                             unit: '₽',
+                                             format: '%n %u',
+                                             delimiter: ' ',
+                                             precision: 0)
   .discount-slider.pb-12.mb-12
-    input#discount_range(type="range" min="0" max="1000" value="0")
+    input#discount_range(type="range" min="0" max="1000" value= cart.discount)
   .amount-container.flex-box.flex-box--sb
     .amount-container--left
       h4 Сумма заказа
     .amount-container--right
-      #cart_amount_with_discount = number_to_currency(cart.sub_total, unit: '₽', format: '%n %u', delimiter: ' ', precision: 0)
+      #cart_amount_with_discount = number_to_currency(cart.sub_total - cart.discount,
+                                                      unit: '₽',
+                                                      format: '%n %u',
+                                                      delimiter: ' ',
+                                                      precision: 0)
