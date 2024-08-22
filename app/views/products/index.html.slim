@@ -1,0 +1,7 @@
+.container
+  .block__header.flex-box.mb-32
+    .block__header--left
+      h2 Каталог
+  .products-container
+    = render collection: @products, partial: "products/templates/product", as: :product
+

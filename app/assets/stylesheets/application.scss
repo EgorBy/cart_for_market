@@ -1,0 +1,304 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+$primary-text: #1E1E3C;
+$secondary-text: #8A93A3;
+$primary-default: #ffffff;
+$primary-btn: #4AD9BD;
+$primary-btn-hover: #4fc5ae;
+$border-color: #ECEFF4;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import 'reset';
+@import 'default';
+
+header {
+  padding: 12px 0;
+  border-bottom: 1px solid $border-color;
+}
+
+h2 {
+  line-height: 40px;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.hidden {
+  display: none;
+}
+
+.main-btn {
+  padding: 10px 16px;
+  background: $primary-btn;
+  color: $primary-default;
+  border: 1px solid $primary-btn;
+  border-radius: 8px;
+  font-size: 14px;
+
+  &:hover {
+    transition: .3s;
+    background: $primary-btn-hover;
+    border: 1px solid $primary-btn-hover;
+  }
+}
+
+.container {
+  width: 992px;
+  margin: 0 auto;
+}
+
+.icon-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    background-color: $primary-default;
+    box-shadow: 0 5px 8px rgba(6,25,56,0.06);
+    border-radius: 8px;
+  }
+}
+
+.counter {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  padding: 2px 5px;
+  height: 16px;
+  font-weight: 800;
+  font-size: 9px;
+  line-height: 12px;
+  text-align: center;
+  color: $primary-default;
+  border-radius: 50px;
+  background-color: #ef4444;
+  z-index: 2;
+}
+
+.product-container {
+  cursor: pointer;
+  padding: 12px 0;
+  border-bottom: 1px solid $primary-default;
+  border-radius: 8px;
+
+  &:hover {
+    transition: 1s;
+    box-shadow: 0 25px 50px -12px rgba(6,25,56,0.25);
+  }
+}
+
+.product__img,
+.line-item__img{
+  img {
+    border-radius: 8px;
+  }
+
+}
+
+.secondary_text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $secondary-text;
+}
+
+.block__header {
+  justify-content: space-between;
+  gap: 8px;
+
+  &--left {
+    gap: 8px;
+  }
+
+  &--right {
+    gap: 8px;
+  }
+}
+
+.number-input-container {
+  user-select: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  input[type="number"] {
+    user-select: none;
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    border: none;
+    background: #F8F8F9;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .button {
+    width: 20px;
+    height: 28px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    background: #F8F8F9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+
+  .button:hover {
+    background-color: #e0e0e0;
+  }
+
+  .button.up {
+    border-radius: 0 3px 3px 0;
+  }
+
+  .button.down {
+    border-radius: 3px 0 0 3px;
+
+  }
+
+  .button.up::after {
+    content: '+';
+    font-size: 12px;
+  }
+
+  .button.down::after {
+    content: '-';
+    font-size: 12px;
+  }
+}
+.line-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #ECEFF4;
+}
+
+.line-item--left {
+  gap: 16px;
+}
+
+.line-item--right {
+  gap: 18px;
+  flex-basis: 10%;
+}
+
+.empty-cart-wrapper {
+  height: 292px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-order {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.field {
+  input, textarea {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    padding: 0 16px;
+    margin: 0;
+    border: 1px solid $border-color;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 400;
+    color: $primary-text;
+    background-color: $primary-default;
+    border-radius: 6px;
+    outline: 0;
+    transition: all 200ms ease-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+
+.discount-container {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+
+  &__header--left {
+    p {
+      line-height: 24px;
+      font-size: 13px;
+      font-weight: 400;
+      color: #515767;
+    }
+  }
+
+  &__header--right {
+    p {
+      line-height: 24px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #515767;
+    }
+    #discount_amount {
+      color: $primary-btn;
+    }
+  }
+
+  .discount-slider {
+    box-sizing: content-box;
+    height: 38px;
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: $primary-btn;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 38px;
+  height: 38px;
+  background: $primary-btn;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -15px;
+}
+
+input[type="range"]::-ms-fill-upper {
+  background: $primary-btn;
+  border-radius: 5px;
+}
+
+

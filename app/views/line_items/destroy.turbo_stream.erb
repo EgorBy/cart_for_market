@@ -1,0 +1,9 @@
+
+<%= turbo_stream.remove "line-item-#{@line_item.id}" do %>
+<% end %>
+
+<%= turbo_stream.replace "cart-counter" do %>
+  <div id="cart-counter" class="counter">
+    <span><%= @cart_counter %></span>
+  </div>
+<% end %>

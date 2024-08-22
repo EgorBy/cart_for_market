@@ -1,0 +1,9 @@
+<%= turbo_stream.replace "line-item-#{@line_item.id}" do %>
+  <%= render partial: "line_items/templates/line_item", locals: { line_item: @line_item } %>
+<% end %>
+
+<%= turbo_stream.replace "cart-counter" do %>
+  <div id="cart-counter" class="counter">
+    <span><%= @cart_counter %></span>
+  </div>
+<% end %>

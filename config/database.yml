@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: cart_for_market_admin
+  password: cart_for_market_password
+
+development:
+  <<: *default
+  database: cart_for_market_database
+  host: localhost
+
+test:
+  <<: *default
+  database: cart_for_market_test
+
+production:
+  <<: *default
+  database: cart_for_market_production
+  username: cart_for_market
+  password: <%= ENV["PRODUCT_CART_DATABASE_PASSWORD"] %>

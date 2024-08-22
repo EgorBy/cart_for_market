@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title ProductCart
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+
+  body
+    header.mb-32
+      .container
+        .row.flex-box.flex-box--sb
+          =link_to root_path
+            .header-item = inline_svg 'logo-frogogo.svg'
+          = link_to cart_path
+            .icon-container.flex-box.flex-box--center
+              = inline_svg 'shop-cart.svg'
+              #cart-counter.counter class="#{@current_cart.line_items.sum(&:quantity) == 0 ? "hidden" : ""}"
+                span = @current_cart.line_items.sum(&:quantity)
+    main
+      = yield

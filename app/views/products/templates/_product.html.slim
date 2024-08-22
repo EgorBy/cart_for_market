@@ -1,0 +1,8 @@
+.product-container.flex-box
+  .product-container--left
+    .product__img.mr-12
+      img src="#{product.image_url}" alt="#{product.name}" border="0"
+  .product-container--right
+    .product__title.mb-4 = product.name
+    .product__price.mb-4 = number_to_currency(product.price, unit: '₽', format: '%n %u')
+    = button_to "Добавить в корзину", line_items_path(product_id: product.id), remote: true, class: "main-btn"
