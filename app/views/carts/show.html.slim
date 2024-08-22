@@ -10,20 +10,8 @@
         = render collection: @cart.line_items, partial: "line_items/templates/line_item", as: :line_item
 
       .discount-container.mb-32
-        .discount-container__header.flex-box.flex-box--sb.mb-12
-          .discount-container__header--left
-            p.mb-4= "#{@cart.line_items.sum(&:quantity)} #{word_form(@cart.line_items.sum(&:quantity))} на сумму"
-            p Передвигая слайдер, укажите сумму скидки
-          .discount-container__header--right
-            p#cart_amount.mb-4 data-summ="#{@cart.sub_total}" = number_to_currency(@cart.sub_total, unit: '₽', format: '%n %u', delimiter: ' ', precision: 0)
-            p#discount_amount 100 ₽
-        .discount-slider.pb-12.mb-12
-          input#discount_range(type="range" min="0" max="1000" value="0")
-        .amount-container.flex-box.flex-box--sb
-          .amount-container--left
-            h4 Сумма заказа
-          .amount-container--right
-            #cart_amount_with_discount = number_to_currency(@cart.sub_total, unit: '₽', format: '%n %u', delimiter: ' ', precision: 0)
+        = render partial: "carts/templates/cart_discount_container", locals: { cart: @cart }
+
       = link_to new_order_path, method: :post, remote: true
         .main-btn.flex-box.flex-box--center = "Оформить"
     - else
